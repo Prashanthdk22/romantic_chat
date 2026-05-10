@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WhatsApp</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#0b141a;
+    font-family:Arial;
+}
+
+.header{
+    background:#202c33;
+    color:white;
+    padding:15px;
+    font-size:20px;
+    display:flex;
+    align-items:center;
+}
+
+.dp{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:pink;
+    margin-right:10px;
+}
+
+.chat{
+    padding:15px;
+    display:flex;
+    flex-direction:column;
+}
+
+.message{
+    max-width:75%;
+    padding:10px 14px;
+    margin:8px 0;
+    border-radius:10px;
+    color:white;
+    font-size:17px;
+    display:none;
+}
+
+.received{
+    background:#202c33;
+    align-self:flex-start;
+}
+
+.sent{
+    background:#005c4b;
+    align-self:flex-end;
+}
+
+.typing{
+    color:gray;
+    margin-top:10px;
+    font-size:14px;
+    padding-left:15px;
+}
+
+.final{
+    text-align:center;
+    color:pink;
+    font-size:28px;
+    margin-top:25px;
+    display:none;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="dp"></div>
+    Nisarga ❤️
+</div>
+
+<div class="chat">
+
+    <div class="message received">hey</div>
+
+    <div class="message sent">hii 😄</div>
+
+    <div class="message received">
+        i think there's a problem...
+    </div>
+
+    <div class="message sent">
+        what happened? 😳
+    </div>
+
+    <div class="message received">
+        my system detected something dangerous
+    </div>
+
+    <div class="message sent">
+        what system 😂
+    </div>
+
+    <div class="message received">
+        the girlfriend detection system
+    </div>
+
+    <div class="message received">
+        and it says...
+    </div>
+
+    <div class="message received">
+        you're illegally cute ❤️
+    </div>
+
+    <div class="message sent">
+        HAHAHAHA
+    </div>
+
+    <div class="message received">
+        punishment:
+    </div>
+
+    <div class="message received">
+        you have to stay with me forever 😌
+    </div>
+
+</div>
+
+<div class="typing" id="typing">
+    typing...
+</div>
+
+<div class="final" id="final">
+    ❤️ I LOVE YOU ❤️
+</div>
+
+<script>
+
+const messages = document.querySelectorAll(".message");
+const typing = document.getElementById("typing");
+const final = document.getElementById("final");
+
+let index = 0;
+
+function showMessage(){
+
+    if(index < messages.length){
+
+        typing.style.display = "block";
+
+        setTimeout(() => {
+
+            messages[index].style.display = "block";
+
+            messages[index].scrollIntoView({
+                behavior:"smooth"
+            });
+
+            index++;
+
+            showMessage();
+
+        }, 1400);
+
+    } else {
+
+        typing.style.display = "none";
+
+        final.style.display = "block";
+    }
+}
+
+showMessage();
+
+</script>
+
+</body>
+</html>
